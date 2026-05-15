@@ -2,21 +2,32 @@
   padding: 16px 0;
   position: fixed;
   width: 100%;
-  z-index: 10;
+  z-index: 5;
   $root: &;
-
+  background-color: transparent;
+  transition: background-color $transition-300;
+  
   &--open {
-    #{$root}__user-link {
+    .header__user-link {
       color: $color-black;
     }
-    .header__burger:hover, 
+
+    background-color: $color-white-smoke;
+
+    .header__burger:hover,
     :focus-visible {
       .burger__icon {
         transform: none;
       }
     }
   }
-
+  
+  &--open {
+    &::before {
+      background-color: $color-white-smoke;
+    }
+  }
+  
   &__wrapper {
     display: flex;
     align-items: center;
@@ -52,5 +63,6 @@
 
   &__user-link {
     color: $color-white;
+    transition: color $transition-300;
   }
 }
